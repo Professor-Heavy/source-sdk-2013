@@ -147,21 +147,28 @@ void CHudBaseDeathNotice::Paint()
 		CHudTexture *icon = msg.iconDeath;
 		CHudTexture *iconPostKillerName = msg.iconPostKillerName;
 		CHudTexture *iconPreKillerName = msg.iconPreKillerName;
+		CHudTexture *iconPreAssisterName = msg.iconPreAssisterName;
+		CHudTexture *iconPostAssisterName = msg.iconPostAssisterName;
 		CHudTexture *iconPostVictimName = msg.iconPostVictimName;
 
 		wchar_t victim[256]=L"";
 		wchar_t killer[256]=L"";
+		wchar_t assister[256]=L"";
 
 		// TEMP - print the death icon name if we don't have a material for it
 
 		g_pVGuiLocalize->ConvertANSIToUnicode( msg.Victim.szName, victim, sizeof( victim ) );
 		g_pVGuiLocalize->ConvertANSIToUnicode( msg.Killer.szName, killer, sizeof( killer ) );
+		g_pVGuiLocalize->ConvertANSIToUnicode( msg.Assister.szName, assister, sizeof( assister ) );
 
 		int iVictimTextWide = UTIL_ComputeStringWidth( m_hTextFont, victim ) + xSpacing;
 		int iDeathInfoTextWide= msg.wzInfoText[0] ? UTIL_ComputeStringWidth( m_hTextFont, msg.wzInfoText ) + xSpacing : 0;
 		int iDeathInfoEndTextWide= msg.wzInfoTextEnd[0] ? UTIL_ComputeStringWidth( m_hTextFont, msg.wzInfoTextEnd ) + xSpacing : 0;
 
 		int iKillerTextWide = killer[0] ? UTIL_ComputeStringWidth( m_hTextFont, killer ) + xSpacing : 0;
+		int iAssisterTextWide = assister[0] ? UTIL_ComputeStringWidth( m_hTextFont, assister ) + xSpacing : 0;
+		// Keeping this a separate string from both the assister and killer.
+		int iAssistIndicatorTextWide = assister[0] ? UTIL_ComputeStringWidth( m_hTextFont, L" + " ) + xSpacing : 0;
 		int iLineTall = m_flLineHeight;
 		int iTextTall = surface()->GetFontTall( m_hTextFont );
 		int iconWide = 0, iconTall = 0, iDeathInfoOffset = 0, iVictimTextOffset = 0, iconActualWide = 0;
@@ -170,6 +177,11 @@ void CHudBaseDeathNotice::Paint()
 		
 		int iconPrekillerWide = 0, iconPrekillerActualWide = 0, iconPrekillerTall = 0;
 		int iconPostkillerWide = 0, iconPostkillerActualWide = 0, iconPostkillerTall = 0;
+
+		int iPreAssisterTextWide = msg.wzPreAssisterText[0] ? UTIL_ComputeStringWidth( m_hTextFont, msg.wzPreAssisterText ) - xSpacing : 0;
+		
+		int iconPreAssisterWide = 0, iconPreAssisterActualWide = 0, iconPreAssisterTall = 0;
+		int iconPostAssisterWide = 0, iconPostAssisterActualWide = 0, iconPostAssisterTall = 0;
 
 		int iconPostVictimWide = 0, iconPostVictimActualWide = 0, iconPostVictimTall = 0;
 
@@ -218,6 +230,36 @@ void CHudBaseDeathNotice::Paint()
 			iconPostkillerTall *= flScale;
 			iconPostkillerWide *= flScale;
 		}
+
+		if ( iconPreAssisterName )
+		{
+			iconPreAssisterActualWide = iconPreAssisterName->EffectiveWidth( 1.0f );
+			iconPreAssisterWide = iconPreAssisterActualWide;
+			iconPreAssisterTall = iconPreAssisterName->EffectiveHeight( 1.0f );
+
+			int iconTallDesired = iLineTall - YRES( 2 );
+			Assert( 0 != iconTallDesired );
+			float flScale = (float)iconTallDesired / (float)iconPreAssisterTall;
+
+			iconPreAssisterActualWide *= flScale;
+			iconPreAssisterTall *= flScale;
+			iconPreAssisterWide *= flScale;
+		}
+
+		if ( iconPostAssisterName )
+		{
+			iconPostAssisterActualWide = iconPostAssisterName->EffectiveWidth( 1.0f );
+			iconPostAssisterWide = iconPostAssisterActualWide;
+			iconPostAssisterTall = iconPostAssisterName->EffectiveHeight( 1.0f );
+
+			int iconTallDesired = iLineTall-YRES(2);
+			Assert( 0 != iconTallDesired );
+			float flScale = (float) iconTallDesired / (float) iconPostAssisterTall;
+
+			iconPostAssisterActualWide *= flScale;
+			iconPostAssisterTall *= flScale;
+			iconPostAssisterWide *= flScale;
+		}
 		
 		if ( iconPostVictimName )
 		{
@@ -234,8 +276,8 @@ void CHudBaseDeathNotice::Paint()
 			iconPostVictimWide *= flScale;
 		}
 
-		int iTotalWide = iKillerTextWide + iconWide + iVictimTextWide + iDeathInfoTextWide + iDeathInfoEndTextWide + ( xMargin * 2 );
-		iTotalWide += iconPrekillerWide + iconPostkillerWide + iPreKillerTextWide + iconPostVictimWide;
+		int iTotalWide = iKillerTextWide + iAssistIndicatorTextWide + iAssisterTextWide + iconWide + iVictimTextWide + iDeathInfoTextWide + iDeathInfoEndTextWide + ( xMargin * 2 );
+		iTotalWide += iconPrekillerWide + iconPostkillerWide + iPreKillerTextWide + iconPreAssisterWide + iconPostAssisterWide + iPreAssisterTextWide + iconPostVictimWide;
 
 		int y = yStart + ( ( iLineTall + m_flLineSpacing ) * i );				
 		int yText = y + ( ( iLineTall - iTextTall ) / 2 );
@@ -285,6 +327,32 @@ void CHudBaseDeathNotice::Paint()
 			int yPreIconTall = y + ( ( iLineTall - iconPostkillerTall ) / 2 );
 			iconPostKillerName->DrawSelf( x, yPreIconTall, iconPostkillerActualWide, iconPostkillerTall, m_clrIcon );
 			x += iconPostkillerWide + xSpacing;
+		}
+
+		if ( assister[0] )
+		{
+			// Draw assister's name with the + symbol.
+			DrawText( x, yText, m_hTextFont, GetInfoTextColor( i ), L" + " );
+			x += iAssistIndicatorTextWide;
+
+			DrawText( x, yText, m_hTextFont, GetTeamColor( msg.Assister.iTeam, msg.bLocalPlayerInvolved ), assister );
+			x += iAssisterTextWide;
+		}
+
+		// preassister text
+		if ( msg.wzPreAssisterText[0] )
+		{
+			x += xSpacing;
+			DrawText( x + iDeathInfoOffset, yText, m_hTextFont, GetInfoTextColor( i ), msg.wzPreAssisterText );
+			x += iPreAssisterTextWide;
+		}
+
+		// postassister icon
+		if ( iconPostAssisterName )
+		{
+			int yPreIconTall = y + ( ( iLineTall - iconPostAssisterTall ) / 2 );
+			iconPostAssisterName->DrawSelf( x, yPreIconTall, iconPostAssisterActualWide, iconPostAssisterTall, m_clrIcon );
+			x += iconPostAssisterWide + xSpacing;
 		}
 
 		// Draw glow behind weapon icon to show it was a crit death
@@ -459,6 +527,7 @@ void CHudBaseDeathNotice::FireGameEvent( IGameEvent *event )
 	{
 		int victim = engine->GetPlayerForUserID( event->GetInt( "userid" ) );
 		int killer = engine->GetPlayerForUserID( event->GetInt( "attacker" ) );
+		int assister = engine->GetPlayerForUserID( event->GetInt( "assister" ) );
 		const char *killedwith = event->GetString( "weapon" );
 		const char *killedwithweaponlog = event->GetString( "weapon_logclassname" );
 
@@ -472,6 +541,7 @@ void CHudBaseDeathNotice::FireGameEvent( IGameEvent *event )
 		// Get the names of the players
 		const char *killer_name = ( killer > 0 ) ? g_PR->GetPlayerName( killer ) : "";
 		const char *victim_name = g_PR->GetPlayerName( victim );
+		const char *assister_name = (assister > 0) ? g_PR->GetPlayerName( assister ) : "";
 		if ( !killer_name )
 		{
 			killer_name = "";
@@ -480,6 +550,11 @@ void CHudBaseDeathNotice::FireGameEvent( IGameEvent *event )
 		if ( !victim_name )
 		{
 			victim_name = "";
+		}
+
+		if ( !assister_name )
+		{
+			assister_name = "";
 		}
 
 		// Make a new death notice
@@ -507,9 +582,11 @@ void CHudBaseDeathNotice::FireGameEvent( IGameEvent *event )
 
 		m_DeathNotices[iMsg].bLocalPlayerInvolved = bLocalPlayerInvolved;
 		m_DeathNotices[iMsg].Killer.iTeam = ( killer > 0 ) ? g_PR->GetTeam( killer ) : 0;
+		m_DeathNotices[iMsg].Assister.iTeam = ( assister > 0 ) ? g_PR->GetTeam( assister ) : 0;
 		m_DeathNotices[iMsg].Victim.iTeam = g_PR->GetTeam( victim );
 		Q_strncpy( m_DeathNotices[iMsg].Killer.szName, killer_name, ARRAYSIZE( m_DeathNotices[iMsg].Killer.szName ) );
 		Q_strncpy( m_DeathNotices[iMsg].Victim.szName, victim_name, ARRAYSIZE( m_DeathNotices[iMsg].Victim.szName ) );
+		Q_strncpy( m_DeathNotices[iMsg].Assister.szName, assister_name, ARRAYSIZE( m_DeathNotices[iMsg].Assister.szName ) );
 		if ( killedwith && *killedwith )
 		{
 			Q_snprintf( m_DeathNotices[iMsg].szIcon, sizeof(m_DeathNotices[iMsg].szIcon), "d_%s", killedwith );
@@ -550,6 +627,7 @@ void CHudBaseDeathNotice::FireGameEvent( IGameEvent *event )
 
 		m_DeathNotices[iMsg].iWeaponID = event->GetInt( "weaponid" );
 		m_DeathNotices[iMsg].iKillerID = event->GetInt( "attacker" );
+		m_DeathNotices[iMsg].iAssisterID = event->GetInt( "assister" );
 		m_DeathNotices[iMsg].iVictimID = event->GetInt( "userid" );
 
 		char sDeathMsg[512];
@@ -568,7 +646,14 @@ void CHudBaseDeathNotice::FireGameEvent( IGameEvent *event )
 		}
 		else
 		{
-			Q_snprintf( sDeathMsg, sizeof( sDeathMsg ), "%s killed %s", m_DeathNotices[iMsg].Killer.szName, m_DeathNotices[iMsg].Victim.szName );
+			if ( m_DeathNotices[iMsg].Assister.szName[0] )
+			{
+				Q_snprintf( sDeathMsg, sizeof( sDeathMsg ), "%s + %s killed %s", m_DeathNotices[iMsg].Killer.szName, m_DeathNotices[iMsg].Assister.szName, m_DeathNotices[iMsg].Victim.szName );
+			}
+			else
+			{
+				Q_snprintf( sDeathMsg, sizeof( sDeathMsg ), "%s killed %s", m_DeathNotices[iMsg].Killer.szName, m_DeathNotices[iMsg].Victim.szName );
+			}
 
 			if ( killedwithweaponlog && killedwithweaponlog[0] && ( killedwithweaponlog[0] > 13 ) )
 			{
@@ -761,6 +846,15 @@ void CHudBaseDeathNotice::FireGameEvent( IGameEvent *event )
 		Q_strncpy( msg.Killer.szName, pszKiller, ARRAYSIZE( msg.Killer.szName ) );
 		m_DeathNotices[iMsg].Killer.iTeam = ( iKiller > 0 ) ? g_PR->GetTeam( iKiller ) : 0;
 
+		int iAssister = event->GetInt( "assister" );
+		const char *pszAssister = ( iAssister > 0 ) ? g_PR->GetPlayerName( iAssister ) : "";
+		if ( !pszAssister )
+		{
+			pszAssister = "";
+		}
+		Q_strncpy( msg.Assister.szName, pszAssister, ARRAYSIZE( msg.Assister.szName ) );
+		m_DeathNotices[iMsg].Assister.iTeam = ( iAssister > 0 ) ? g_PR->GetTeam( iAssister ) : 0;
+
 		int iVictim = event->GetInt( "victim" );
 		const char *pszVictim = ( iVictim > 0 ) ? g_PR->GetPlayerName( iVictim ) : "";
 		if ( !pszVictim )
@@ -772,6 +866,7 @@ void CHudBaseDeathNotice::FireGameEvent( IGameEvent *event )
 
 		msg.bLocalPlayerInvolved = ( ( iKiller == GetLocalPlayerIndex() ) || ( iVictim == GetLocalPlayerIndex() ) );
 		msg.iKillerID = iKiller;
+		msg.iAssisterID = iAssister;
 		msg.iVictimID = iVictim;
 		msg.bCrit = false;
 		msg.iconCritDeath = NULL;

@@ -39,12 +39,16 @@ struct DeathNoticeItem
 		flCreationTime = 0;
 		iCount = 0;
 		iWeaponID = -1;
+		iAssisterID = -1;
 		iKillerID = -1;
 		iVictimID = -1;
 
 		iconPreKillerName = NULL;
 		iconPostKillerName = NULL;
 		wzPreKillerText[0] = 0;
+		iconPreAssisterName = NULL;
+		iconPostAssisterName = NULL;
+		wzPreAssisterText[0] = 0;
 		iconPostVictimName = NULL;
 
 		bSpecialScore = false;
@@ -53,6 +57,7 @@ struct DeathNoticeItem
 	float GetExpiryTime();
 
 	DeathNoticePlayer	Killer;
+	DeathNoticePlayer	Assister;
 	DeathNoticePlayer   Victim;
 	char		szIcon[32];		// name of icon to display
 	wchar_t		wzInfoText[32];	// any additional text to display next to icon
@@ -65,6 +70,11 @@ struct DeathNoticeItem
 	CHudTexture *iconPostKillerName;
 	wchar_t		wzPreKillerText[32];
 
+	CHudTexture *iconPreAssisterName;
+
+	CHudTexture *iconPostAssisterName;
+	wchar_t		wzPreAssisterText[32];
+
 	CHudTexture *iconPostVictimName;
 
 	bool		bSelfInflicted;
@@ -73,6 +83,7 @@ struct DeathNoticeItem
 	float		flCreationTime;
 	int			iWeaponID;
 	int			iKillerID;
+	int 		iAssisterID;
 	int			iVictimID;
 	int			iCount;
 

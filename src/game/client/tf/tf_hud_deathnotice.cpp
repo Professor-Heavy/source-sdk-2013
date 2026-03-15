@@ -799,19 +799,20 @@ void CTFHudDeathNotice::OnGameEvent( IGameEvent *event, int iDeathNoticeMsg )
 		
 		const int iKillerID = engine->GetPlayerForUserID( event->GetInt( "attacker" ) );
 		const int iVictimID = engine->GetPlayerForUserID( event->GetInt( "userid" ) );
-		// if there was an assister, put both the killer's and assister's names in the death message
+		// Do we have an assister?
 		int iAssisterID = engine->GetPlayerForUserID( event->GetInt( "assister" ) );
 
 		EHorriblePyroVisionHack ePyroVisionHack = kHorriblePyroVisionHack_KillAssisterType_Default;
 		CUtlConstString sAssisterNameScratch;
-		const char *assister_name = ( iAssisterID > 0 ? g_PR->GetPlayerName( iAssisterID ) : NULL );
+		const char *pyrovision_assister_name = NULL;
 		
 		// If we don't have a real assister (would have been passed in to us as a player index) and
 		// we're in crazy pyrovision mode and we got a dummy assister, than fall back and display
 		// that just for giggles. We use this so the Balloonicorn and friends can get the assist
 		// credit they so rightly deserve.
-		if ( !assister_name && bIsSillyPyroVision )
+		if ( iAssisterID <= 0 && bIsSillyPyroVision )
 		{
+			DeathNoticeItem &msg = m_DeathNotices[iDeathNoticeMsg];
 			// Ignore this for self-kills.
 			if ( bIsObjectDestroyed || (iKillerID != iVictimID) )
 			{
@@ -836,14 +837,14 @@ void CTFHudDeathNotice::OnGameEvent( IGameEvent *event, int iDeathNoticeMsg )
 							char szANSIConvertedItemName[ MAX_PLAYER_NAME_LENGTH ];
 							g_pVGuiLocalize->ConvertUnicodeToANSI( wszLocalizedItemName, szANSIConvertedItemName, MAX_PLAYER_NAME_LENGTH );
 							sAssisterNameScratch = szANSIConvertedItemName;
-							assister_name = sAssisterNameScratch.Get();
+							pyrovision_assister_name = sAssisterNameScratch.Get();
 							break;
 						}
 						case kHorriblePyroVisionHack_KillAssisterType_CustomName:
 						case kHorriblePyroVisionHack_KillAssisterType_CustomName_First:
 						{
 							sAssisterNameScratch = pszMaybeFallbackAssisterName;
-							assister_name = sAssisterNameScratch.Get();
+							pyrovision_assister_name = sAssisterNameScratch.Get();
 							break;
 						}
 						default:
@@ -855,11 +856,12 @@ void CTFHudDeathNotice::OnGameEvent( IGameEvent *event, int iDeathNoticeMsg )
 
 		bool bMultipleKillers = false;
 
-		if ( assister_name )
+		if ( pyrovision_assister_name )
 		{
 			DeathNoticeItem &msg = m_DeathNotices[ iDeathNoticeMsg ];
+			// We're still looking to retain old behavior of using 
 			const char *pszKillerName = msg.Killer.szName;
-			const char *pszAssisterName = assister_name;
+			const char *pszAssisterName = pyrovision_assister_name;
 
 			// Check to see if we're swapping the killer and the assister. We use this so the brain slug can get the kill
 			// credit for the HUD death notices, with the player being the assister.
@@ -872,13 +874,15 @@ void CTFHudDeathNotice::OnGameEvent( IGameEvent *event, int iDeathNoticeMsg )
 			char szKillerBuf[MAX_PLAYER_NAME_LENGTH*2];
 			Q_snprintf( szKillerBuf, ARRAYSIZE(szKillerBuf), "%s + %s", pszKillerName, pszAssisterName );
 			Q_strncpy( msg.Killer.szName, szKillerBuf, ARRAYSIZE( msg.Killer.szName ) );
-			if ( iLocalPlayerIndex == iAssisterID )
-			{
-				msg.bLocalPlayerInvolved = true;
-			}
-
-			bMultipleKillers = true;
 		}
+
+		if ( iLocalPlayerIndex == iAssisterID )
+		{
+			DeathNoticeItem &msg = m_DeathNotices[ iDeathNoticeMsg ];
+			msg.bLocalPlayerInvolved = true;
+		}	
+
+		bMultipleKillers = true;
 
 		// play an exciting sound if a sniper pulls off any sort of penetration kill
 		const int iPlayerPenetrationCount = !event->IsEmpty( "playerpenetratecount" ) ? event->GetInt( "playerpenetratecount" ) : 0;
@@ -1173,9 +1177,10 @@ void CTFHudDeathNotice::OnGameEvent( IGameEvent *event, int iDeathNoticeMsg )
 
 		int iKillStreakTotal = event->GetInt( "kill_streak_total" );
 		int iKillStreakWep = event->GetInt( "kill_streak_wep" );
+		int iKillStreakAssist = event->GetInt( "kill_streak_assist" );
 		int iDuckStreakTotal = event->GetInt( "duck_streak_total" );
 		int iDucksThisKill = event->GetInt( "ducks_streaked" );
-
+		
 		// if the active weapon is kill streak
 		C_TFPlayer* pKiller = ToTFPlayer( UTIL_PlayerByIndex( iKillerID ) );
 		C_TFPlayer* pVictim = ToTFPlayer( UTIL_PlayerByIndex( iVictimID ) );
@@ -1185,6 +1190,11 @@ void CTFHudDeathNotice::OnGameEvent( IGameEvent *event, int iDeathNoticeMsg )
 		if ( pKiller && pKiller->m_Shared.IsCarryingRune() )
 		{
 			msg.iconPreKillerName = GetMannPowerIcon( pKiller->m_Shared.GetCarryingRuneType(), pKiller->GetTeamNumber() == TF_TEAM_RED );
+		}
+
+		if ( pAssister && pAssister->m_Shared.IsCarryingRune() )
+		{
+			msg.iconPreAssisterName = GetMannPowerIcon( pAssister->m_Shared.GetCarryingRuneType(), pAssister->GetTeamNumber() == TF_TEAM_RED );
 		}
 
 		if ( pVictim && pVictim->m_Shared.IsCarryingRune() )
@@ -1216,11 +1226,27 @@ void CTFHudDeathNotice::OnGameEvent( IGameEvent *event, int iDeathNoticeMsg )
 			msg.iconPostKillerName = msg.bLocalPlayerInvolved ? m_iconDuckStreakDNeg : m_iconDuckStreak;
 		}
 
+		if ( iKillStreakAssist > 0 )
+		{
+			// Assister was a medic and deserves acknowledgement. Show their kill streak.
+			wchar_t wzCount[10];
+			_snwprintf( wzCount, ARRAYSIZE( wzCount ), L"%d", iKillStreakAssist );
+			g_pVGuiLocalize->ConstructString_safe( msg.wzPreAssisterText, g_pVGuiLocalize->Find("#Kill_Streak"), 1, wzCount );
+			if ( msg.bLocalPlayerInvolved )
+			{
+				msg.iconPostAssisterName = m_iconKillStreakDNeg;
+			}
+			else
+			{
+				msg.iconPostAssisterName = m_iconKillStreak;
+			}
+		}
+
 		// Check to see if we want a extra notification
 		// Attempt to display these in order of descending priority
 
 		// Check Assister for Additional Messages
-		int iKillStreakAssist = event->GetInt( "kill_streak_assist" );
+		// Killstreak Assister is above with the rest
 		int iKillStreakVictim = event->GetInt( "kill_streak_victim" );
 
 		// Kills
