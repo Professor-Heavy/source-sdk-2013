@@ -39,7 +39,6 @@ struct DeathNoticeItem
 		flCreationTime = 0;
 		iCount = 0;
 		iWeaponID = -1;
-		iAssisterID = -1;
 		iKillerID = -1;
 		iVictimID = -1;
 
@@ -83,7 +82,6 @@ struct DeathNoticeItem
 	float		flCreationTime;
 	int			iWeaponID;
 	int			iKillerID;
-	int 		iAssisterID;
 	int			iVictimID;
 	int			iCount;
 

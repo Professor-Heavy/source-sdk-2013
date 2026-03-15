@@ -629,7 +629,6 @@ void CHudBaseDeathNotice::FireGameEvent( IGameEvent *event )
 
 		m_DeathNotices[iMsg].iWeaponID = event->GetInt( "weaponid" );
 		m_DeathNotices[iMsg].iKillerID = event->GetInt( "attacker" );
-		m_DeathNotices[iMsg].iAssisterID = event->GetInt( "assister" );
 		m_DeathNotices[iMsg].iVictimID = event->GetInt( "userid" );
 
 		char sDeathMsg[512];
@@ -847,16 +846,6 @@ void CHudBaseDeathNotice::FireGameEvent( IGameEvent *event )
 		}
 		Q_strncpy( msg.Killer.szName, pszKiller, ARRAYSIZE( msg.Killer.szName ) );
 		m_DeathNotices[iMsg].Killer.iTeam = ( iKiller > 0 ) ? g_PR->GetTeam( iKiller ) : 0;
-
-		int iAssister = event->GetInt( "assister" );
-		const char *pszAssister = ( iAssister > 0 ) ? g_PR->GetPlayerName( iAssister ) : "";
-		if ( !pszAssister )
-		{
-			pszAssister = "";
-		}
-		Q_strncpy( msg.Assister.szName, pszAssister, ARRAYSIZE( msg.Assister.szName ) );
-		m_DeathNotices[iMsg].Assister.iTeam = ( iAssister > 0 ) ? g_PR->GetTeam( iAssister ) : 0;
-
 		int iVictim = event->GetInt( "victim" );
 		const char *pszVictim = ( iVictim > 0 ) ? g_PR->GetPlayerName( iVictim ) : "";
 		if ( !pszVictim )
@@ -868,7 +857,6 @@ void CHudBaseDeathNotice::FireGameEvent( IGameEvent *event )
 
 		msg.bLocalPlayerInvolved = ( ( iKiller == GetLocalPlayerIndex() ) || ( iVictim == GetLocalPlayerIndex() ) );
 		msg.iKillerID = iKiller;
-		msg.iAssisterID = iAssister;
 		msg.iVictimID = iVictim;
 		msg.bCrit = false;
 		msg.iconCritDeath = NULL;
