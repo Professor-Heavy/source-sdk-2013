@@ -155,6 +155,8 @@ void CHudBaseDeathNotice::Paint()
 		wchar_t killer[256]=L"";
 		wchar_t assister[256]=L"";
 
+		const wchar_t *assistIndicator = L" + ";
+
 		// TEMP - print the death icon name if we don't have a material for it
 
 		g_pVGuiLocalize->ConvertANSIToUnicode( msg.Victim.szName, victim, sizeof( victim ) );
@@ -168,7 +170,7 @@ void CHudBaseDeathNotice::Paint()
 		int iKillerTextWide = killer[0] ? UTIL_ComputeStringWidth( m_hTextFont, killer ) + xSpacing : 0;
 		int iAssisterTextWide = assister[0] ? UTIL_ComputeStringWidth( m_hTextFont, assister ) + xSpacing : 0;
 		// Keeping this a separate string from both the assister and killer.
-		int iAssistIndicatorTextWide = assister[0] ? UTIL_ComputeStringWidth( m_hTextFont, L" + " ) + xSpacing : 0;
+		int iAssistIndicatorTextWide = assister[0] ? UTIL_ComputeStringWidth( m_hTextFont, assistIndicator) + xSpacing : 0;
 		int iLineTall = m_flLineHeight;
 		int iTextTall = surface()->GetFontTall( m_hTextFont );
 		int iconWide = 0, iconTall = 0, iDeathInfoOffset = 0, iVictimTextOffset = 0, iconActualWide = 0;
@@ -332,7 +334,7 @@ void CHudBaseDeathNotice::Paint()
 		if ( assister[0] )
 		{
 			// Draw assister's name with the + symbol.
-			DrawText( x, yText, m_hTextFont, GetInfoTextColor( i ), L" + " );
+			DrawText( x, yText, m_hTextFont, msg.Killer.iTeam == msg.Assister.iTeam ? GetTeamColor( msg.Assister.iTeam, msg.bLocalPlayerInvolved ) : GetInfoTextColor( i ), assistIndicator );
 			x += iAssistIndicatorTextWide;
 
 			DrawText( x, yText, m_hTextFont, GetTeamColor( msg.Assister.iTeam, msg.bLocalPlayerInvolved ), assister );

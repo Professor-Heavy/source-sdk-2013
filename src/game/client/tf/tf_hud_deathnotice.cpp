@@ -859,7 +859,7 @@ void CTFHudDeathNotice::OnGameEvent( IGameEvent *event, int iDeathNoticeMsg )
 		if ( pyrovision_assister_name )
 		{
 			DeathNoticeItem &msg = m_DeathNotices[ iDeathNoticeMsg ];
-			// We're still looking to retain old behavior of using 
+			// We're still looking to retain old behavior of using Pyrovision assisters as the killer.
 			const char *pszKillerName = msg.Killer.szName;
 			const char *pszAssisterName = pyrovision_assister_name;
 
