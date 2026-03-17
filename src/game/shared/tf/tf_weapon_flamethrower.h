@@ -28,6 +28,8 @@
 	#include "iscorer.h"
 #endif
 
+#define TF_FLAMETHROWER_MAX_CHARGE_TIME 2.f
+
 enum FlameThrowerState_t
 {
 	// Firing states.
@@ -80,6 +82,8 @@ public:
 
 	virtual void	DestroySounds( void );
 	virtual void	Precache( void ) OVERRIDE;
+
+	virtual float	GetChargeMaxTime( void ) const { return TF_FLAMETHROWER_MAX_CHARGE_TIME; }
 
 	bool			CanAirBlast() const;
 	bool			CanAirBlastPushPlayer() const;
