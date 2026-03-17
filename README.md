@@ -1,10 +1,8 @@
-# Source SDK 2013
+# Restore Unused Attributes
 
-Source code for Source SDK 2013.
+Modified Source SDK 2013 code. Restores unused attributes, either by changing their classes/UI elements to allow them to function, or by modifying the item schema to implement them.
 
-Contains the game code for Half-Life 2, HL2: DM and TF2.
-
-**Now including Team Fortress 2! ✨**
+A command will also be added to allow for a dynamic generation of item schema attributes, so long as the class is present in the code. Alternatively, the tf_add_weapon_attribute command can apply attributes by name or ID to the player's currently equipped weapon.
 
 ## Build instructions
 
