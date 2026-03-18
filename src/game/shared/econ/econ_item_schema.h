@@ -1281,6 +1281,7 @@ public:
 	bool		IsAllowedInMatch( void ) const		{ return m_bAllowedInThisMatch; }
 	bool		IsBaseItem( void ) const			{ return m_bBaseItem; }
 	bool		IsBundle( void ) const				{ return m_BundleInfo != NULL; }
+	bool		IsModItem( void ) const				{ return m_bModItem; }
 	bool		HasProperName( void ) const			{ return m_bProperName; }
 	const char	*GetClassToken( void ) const		{ return m_pszClassToken; }
 	const char	*GetSlotToken( void ) const			{ return m_pszSlotToken; }
@@ -1601,6 +1602,7 @@ private:
 	bool			m_bShouldShowInArmory;
 	bool			m_bBaseItem;
 	bool			m_bImported;
+	bool			m_bModItem;
 
 	// A pack bundle is a bundle that contains items that are not for sale individually
 	bool			m_bIsPackBundle;
@@ -2613,6 +2615,9 @@ public:
 	typedef CUtlDict<CEconLootListDefinition *>	LootListDefinitionMap_t;
 	const LootListDefinitionMap_t &GetLootLists() const { return m_dictLootLists; }
 
+	typedef CUtlMap<int, CEconItemDefinition*, int>	ModItemDefinitionMap_t;
+	const ModItemDefinitionMap_t& GetModItemDefinitionMap() const { return m_mapModItems; }
+
 	typedef CUtlMap<int, CUtlString> RevolvingLootListDefinitionMap_t;
 	const RevolvingLootListDefinitionMap_t  &GetRevolvingLootLists() const { return m_mapRevolvingLootLists; }
 
@@ -2924,6 +2929,9 @@ private:
 
 	// List of all base items, is a sublist of mapItems
 	BaseItemDefinitionMap_t								m_mapBaseItems;
+
+	// List of all modded items.
+	ModItemDefinitionMap_t								m_mapModItems;
 
 #if defined(CLIENT_DLL) || defined(GAME_DLL)
 	// What is the default item definition we'll return in the client code if we can't find the correct one?
