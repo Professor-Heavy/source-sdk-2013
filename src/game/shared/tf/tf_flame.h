@@ -22,6 +22,7 @@ struct flame_point_t : tf_point_t
 	Vector m_vecInitialPos = vec3_origin;
 };
 
+#define WATERFALL_FLAMETHROWER_TEST
 #define WATERFALL_FLAMETHROWER_STREAMS 5
 
 #ifdef GAME_DLL

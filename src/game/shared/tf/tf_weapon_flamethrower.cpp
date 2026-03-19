@@ -13,6 +13,7 @@
 #include "debugoverlay_shared.h"
 #include "soundenvelope.h"
 
+#define WATERFALL_FLAMETHROWER_TEST
 #if defined( CLIENT_DLL )
 
 	#include "c_tf_player.h"
@@ -870,6 +871,7 @@ void CTFFlameThrower::PrimaryAttack()
 		CALL_ATTRIB_HOOK_INT( iWaterfallMode, flame_waterfall );
 		if ( iWaterfallMode )
 		{
+			Msg( "Waterfall mode active!  Setting flamethrower damage to %f\n", tf_flamethrower_waterfall_damage_per_tick.GetFloat() );
 			flDamage = tf_flamethrower_waterfall_damage_per_tick.GetFloat();
 		}
 #endif

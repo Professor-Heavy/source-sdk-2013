@@ -9,6 +9,8 @@
 #include "shot_manipulator.h"
 #include "tf_weapon_flamethrower.h"
 
+#define WATERFALL_FLAMETHROWER_TEST
+
 #ifdef GAME_DLL
 #include "tf_player.h"
 #include "tf_weapon_compound_bow.h"
