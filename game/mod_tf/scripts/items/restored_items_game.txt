@@ -4,9 +4,1717 @@
 {
 	"attributes"
 	{
+        "1031"
+		{
+			"name"	"flamethrower spinup"
+			"attribute_class"	"mod_flamethrower_spinup_time"
+			"description_string"	"#Attrib_Flamethrower_Spinup"
+			"description_format"	"value_is_additive"
+			"hidden"	"0"
+			"effect_type"	"negative"
+			"stored_as_integer"	"0"
+		}
+        "1032"
+		{
+			"name"	"flamethrower forward pull"
+			"attribute_class"	"firing_forward_pull"
+			"description_string"	"#Attrib_Flamethrower_Forward_Pull"
+			"description_format"	"value_is_additive"
+			"hidden"	"0"
+			"effect_type"	"positive"
+			"stored_as_integer"	"0"
+		}
+        "1033"
+		{
+			"name"	"killcombo"
+			"attribute_class"	"kill_combo_fire_rate_boost"
+			"description_string"	"#Attrib_Killcombo_Attackrate_Bonus"
+			"description_format"	"value_is_additive_percentage"
+			"hidden"	"0"
+			"effect_type"	"positive"
+			"stored_as_integer"	"0"
+		}
+        "1034"
+		{
+			"name"	"airblast cone bonus"
+			"attribute_class"	"mult_airblast_cone_scale"
+			"description_string"	"#Attrib_Flamethrower_Airblast_Cone_Bonus"
+			"description_format"	"value_is_percentage"
+			"hidden"	"0"
+			"effect_type"	"positive"
+			"stored_as_integer"	"0"
+		}
+        "1035"
+		{
+			"name"	"airblast cone penalty"
+			"attribute_class"	"mult_airblast_cone_scale"
+			"description_string"	"#Attrib_Flamethrower_Airblast_Cone_Penalty"
+			"description_format"	"value_is_percentage"
+			"hidden"	"0"
+			"effect_type"	"negative"
+			"stored_as_integer"	"0"
+		}
+        "1036"
+		{
+			"name"	"airblast primary refire bonus"
+			"attribute_class"	"mult_airblast_primary_refire_time"
+			"description_string"	"#Attrib_Flamethrower_Primary_Refire_Bonus"
+			"description_format"	"value_is_inverted_percentage"
+			"hidden"	"0"
+			"effect_type"	"positive"
+			"stored_as_integer"	"0"
+		}
+        "1037"
+		{
+			"name"	"airblast primary refire penalty"
+			"attribute_class"	"mult_airblast_primary_refire_time"
+			"description_string"	"#Attrib_Flamethrower_Primary_Refire_Penalty"
+			"description_format"	"value_is_inverted_percentage"
+			"hidden"	"0"
+			"effect_type"	"negative"
+			"stored_as_integer"	"0"
+		}
+        "1038"
+		{
+			"name"	"heat seek bonus"
+			"attribute_class"	"mod_projectile_heat_seek_power"
+			"description_string"	"#Attrib_Heat_Seek_Bonus"
+			"description_format"	"value_is_additive"
+			"hidden"	"0"
+			"effect_type"	"positive"
+			"stored_as_integer"	"0"
+		}
+        "1039"
+		{
+			"name"	"flame waterfall"
+			"attribute_class"	"flame_waterfall"
+			"description_string"	"#Attrib_Flame_Waterfall"
+			"description_format"	"value_is_additive"
+			"hidden"	"0"
+			"effect_type"	"neutral"
+			"stored_as_integer"	"1"
+		}
+        "1040"
+		{
+			"name"	"airblast dashes"
+			"attribute_class"	"airblast_dashes"
+			"description_string"	"#Attrib_Airblast_Dashes"
+			"description_format"	"value_is_additive"
+			"hidden"	"0"
+			"effect_type"	"neutral"
+			"stored_as_integer"	"1"
+		}
+		"1041"
+		{
+			"name"	"reverse airblast"
+			"attribute_class"	"reverse_airblast"
+			"description_string"	"#Attrib_Reverse_Airblast"
+			"description_format"	"value_is_additive"
+			"hidden"	"0"
+			"effect_type"	"neutral"
+			"stored_as_integer"	"1"
+		}
+        "1043"
+		{
+			"name"	"sapper charge time"
+			"attribute_class"	"sapper_deploy_time"
+			"description_string"	"#Attrib_Sapper_Charge"
+			"description_format"	"value_is_additive"
+			"hidden"	"0"
+			"effect_type"	"neutral"
+			"stored_as_integer"	"0"
+		}
+        "1044"
+		{
+			"name"	"sapper charge meter"
+			"attribute_class"	"custom_charge_meter"
+			"description_string"	"#Attrib_Sapper_Charge_Uses_Meter"
+			"description_format"	"value_is_additive"
+			"hidden"	"0"
+			"effect_type"	"neutral"
+			"stored_as_integer"	"1"
+		}
+        "1045"
+		{
+			"name"	"stacking damage bonus"
+			"attribute_class"	"extra_damage_on_hit"
+			"description_string"	"#Attrib_Stacking_Damage_Increase"
+			"description_format"	"value_is_additive_percentage"
+			"hidden"	"0"
+			"effect_type"	"positive"
+			"stored_as_integer"	"1"
+		}
+        "1046"
+		{
+			"name"	"stacking damage miss penalty"
+			"attribute_class"	"extra_damage_on_hit_penalty"
+			"description_string"	"#Attrib_Stacking_Damage_Decrease"
+			"description_format"	"value_is_additive_percentage"
+			"hidden"	"0"
+			"effect_type"	"negative"
+			"stored_as_integer"	"1"
+		}
+        "1047"
+		{
+			"name"	"last shot crits"
+			"attribute_class"	"last_shot_crits"
+			"description_string"	"#Attrib_Last_Shot_Crits"
+			"description_format"	"value_is_additive"
+			"hidden"	"0"
+			"effect_type"	"positive"
+			"stored_as_integer"	"1"
+		}
+		"1048"
+		{
+			"name"	"dispenser rate bonus"
+			"attribute_class"	"mult_dispenser_rate"
+			"description_string"	"#Attrib_Dispenser_Rate_Bonus"
+			"description_format"	"value_is_percentage"
+			"hidden"	"0"
+			"effect_type"	"positive"
+			"stored_as_integer"	"0"
+		}
+        "1049"
+		{
+			"name"	"dispenser rate penalty"
+			"attribute_class"	"mult_dispenser_rate"
+			"description_string"	"#Attrib_Dispenser_Rate_Penalty"
+			"description_format"	"value_is_percentage"
+			"hidden"	"0"
+			"effect_type"	"negative"
+			"stored_as_integer"	"0"
+		}
+		"1050"
+		{
+			"name"	"teleporter rate bonus"
+			"attribute_class"	"mult_teleporter_recharge_rate"
+			"description_string"	"#Attrib_Teleporter_Rate_Bonus"
+			"description_format"	"value_is_inverted_percentage"
+			"hidden"	"0"
+			"effect_type"	"positive"
+			"stored_as_integer"	"0"
+		}
+        "1051"
+		{
+			"name"	"teleporter rate penalty"
+			"attribute_class"	"mult_teleporter_recharge_rate"
+			"description_string"	"#Attrib_Teleporter_Rate_Penalty"
+			"description_format"	"value_is_inverted_percentage"
+			"hidden"	"0"
+			"effect_type"	"negative"
+			"stored_as_integer"	"0"
+		}
+		"1052"
+		{
+			"name"	"disguise as dispenser"
+			"attribute_class"	"disguise_as_dispenser_on_crouch"
+			"description_string"	"#Attrib_Disguise_As_Dispenser"
+			"description_format"	"value_is_additive"
+			"hidden"	"0"
+			"effect_type"	"positive"
+			"stored_as_integer"	"1"
+		}
+		"1053"
+		{
+			"name"	"ubercharge ammo"
+			"attribute_class"	"ubercharge_ammo"
+			"description_string"	"#Attrib_Uber_Ammo"
+			"description_format"	"value_is_additive_percentage"
+			"hidden"	"0"
+			"effect_type"	"negative"
+			"stored_as_integer"	"0"
+		}
+		"1054"
+		{
+			"name"	"ubercharge transfer"
+			"attribute_class"	"ubercharge_transfer"
+			"description_string"	"#Attrib_Uber_Transfer"
+			"description_format"	"value_is_additive"
+			"hidden"	"0"
+			"effect_type"	"positive"
+			"stored_as_integer"	"0"
+		}
+		"1055"
+		{
+			"name"	"fires milk bolt"
+			"attribute_class"	"fires_milk_bolt"
+			"description_string"	"#Attrib_Fires_Milk_Bolt"
+			"description_format"	"value_is_additive"
+			"hidden"	"0"
+			"effect_type"	"positive"
+			"stored_as_integer"	"0"
+		}
+		"1056"
+		{
+			"name"	"teleport instead of die"
+			"attribute_class"	"teleport_instead_of_die"
+			"description_string"	"#Attrib_Teleport_On_Death_Chance"
+			"description_format"	"value_is_additive_percentage"
+			"hidden"	"0"
+			"effect_type"	"positive"
+			"stored_as_integer"	"0"
+		}
+		"1057"
+		{
+			"name"	"uber on damage taken"
+			"attribute_class"	"uber_on_damage_taken"
+			"description_string"	"#Attrib_Uber_On_Damaged"
+			"description_format"	"value_is_additive_percentage"
+			"hidden"	"0"
+			"effect_type"	"positive"
+			"stored_as_integer"	"0"
+		}
+		"1058"
+		{
+			"name"	"penetration damage penalty"
+			"attribute_class"	"penetration_damage_penalty"
+			"description_string"	"#Attrib_Penetration_Damage_Penalty"
+			"description_format"	"value_is_percentage"
+			"hidden"	"0"
+			"effect_type"	"negative"
+			"stored_as_integer"	"0"
+		}
+		"1059"
+		{
+			"name"	"crosshair charge bonus"
+			"attribute_class"	"mult_sniper_charge_per_sec_with_enemy_under_crosshair"
+			"description_string"	"#Attrib_Sniper_Charge_Crosshair_Bonus"
+			"description_format"	"value_is_percentage"
+			"hidden"	"0"
+			"effect_type"	"positive"
+			"stored_as_integer"	"0"
+		}
+		"1060"
+		{
+			"name"	"crosshair charge penalty"
+			"attribute_class"	"mult_sniper_charge_per_sec_with_enemy_under_crosshair"
+			"description_string"	"#Attrib_Sniper_Charge_Crosshair_Penalty"
+			"description_format"	"value_is_percentage"
+			"hidden"	"0"
+			"effect_type"	"negative"
+			"stored_as_integer"	"0"
+		}
+		"1061"
+		{
+			"name"	"beep under crosshair"
+			"attribute_class"	"sniper_beep_with_enemy_under_crosshair"
+			"description_string"	"#Attrib_Sniper_Charge_Crosshair_Beep"
+			"description_format"	"value_is_additive"
+			"hidden"	"0"
+			"effect_type"	"positive"
+			"stored_as_integer"	"1"
+		}
+		"1062"
+		{
+			"name"	"soldier buff range bonus"
+			"attribute_class"	"mod_soldier_buff_range"
+			"description_string"	"#Attrib_Soldier_Buff_Range_Bonus"
+			"description_format"	"value_is_percentage"
+			"hidden"	"0"
+			"effect_type"	"positive"
+			"stored_as_integer"	"0"
+		}
+		"1063"
+		{
+			"name"	"soldier buff range penalty"
+			"attribute_class"	"mod_soldier_buff_range"
+			"description_string"	"#Attrib_Soldier_Buff_Range_Penalty"
+			"description_format"	"value_is_percentage"
+			"hidden"	"0"
+			"effect_type"	"negative"
+			"stored_as_integer"	"0"
+		}
+		"1064"
+		{
+			"name"	"non rocketjump attackrate bonus"
+			"attribute_class"	"mul_nonrocketjump_attackrate"
+			"description_string"	"#Attrib_Grounded_Attackrate_Bonus"
+			"description_format"	"value_is_percentage"
+			"hidden"	"0"
+			"effect_type"	"positive"
+			"stored_as_integer"	"0"
+		}
+		"1065"
+		{
+			"name"	"non rocketjump attackrate penalty"
+			"attribute_class"	"mul_nonrocketjump_attackrate"
+			"description_string"	"#Attrib_Grounded_Attackrate_Penalty"
+			"description_format"	"value_is_percentage"
+			"hidden"	"0"
+			"effect_type"	"negative"
+			"stored_as_integer"	"0"
+		}
+		"1066"
+		{
+			"name"	"override hand model index"
+			"attribute_class"	"override_hand_model_index"
+			"description_string"	"#Attrib_Override_Hand_Index"
+			"description_format"	"value_is_additive"
+			"hidden"	"0"
+			"effect_type"	"neutral"
+			"stored_as_integer"	"0"
+		}
+		"1067"
+		{
+			"name"	"aoe heal chance"
+			"attribute_class"	"aoe_heal_chance"
+			"description_string"	"#Attrib_RadiusHeal_On_Damage"
+			"description_format"	"value_is_additive"
+			"hidden"	"0"
+			"effect_type"	"positive"
+			"stored_as_integer"	"0"
+		}
+		"1068"
+		{
+			"name"	"crits on damage"
+			"attribute_class"	"crits_on_damage"
+			"description_string"	"#Attrib_Crits_On_Damage"
+			"description_format"	"value_is_additive"
+			"hidden"	"0"
+			"effect_type"	"positive"
+			"stored_as_integer"	"0"
+		}
+		"1069"
+		{
+			"name"	"stun on damage"
+			"attribute_class"	"stun_on_damage"
+			"description_string"	"#Attrib_Stun_On_Damage"
+			"description_format"	"value_is_additive"
+			"hidden"	"0"
+			"effect_type"	"positive"
+			"stored_as_integer"	"0"
+		}
+		"1070"
+		{
+			"name"	"aoe blast on damage"
+			"attribute_class"	"aoe_blast_on_damage"
+			"description_string"	"#Attrib_AoE_Blast_On_Damage"
+			"description_format"	"value_is_additive"
+			"hidden"	"0"
+			"effect_type"	"positive"
+			"stored_as_integer"	"0"
+		}
+		"1071"
+		{
+			"name"	"can breathe under water"
+			"attribute_class"	"can_breathe_under_water"
+			"description_string"	"#Attrib_Breathe_Underwater"
+			"description_format"	"value_is_additive"
+			"hidden"	"0"
+			"effect_type"	"positive"
+			"stored_as_integer"	"1"
+		}
+		"1073"
+		{
+			"name"	"cannot swim"
+			"attribute_class"	"cannot_swim"
+			"description_string"	"#Attrib_Cant_Swim"
+			"description_format"	"value_is_additive"
+			"hidden"	"0"
+			"effect_type"	"negative"
+			"stored_as_integer"	"1"
+		}
+		"1074"
+		{
+			"name"	"swimming mastery"
+			"attribute_class"	"swimming_mastery"
+			"description_string"	"#Attrib_Swimming_Mastery"
+			"description_format"	"value_is_additive"
+			"hidden"	"0"
+			"effect_type"	"positive"
+			"stored_as_integer"	"1"
+		}
+		"1075"
+		{
+			"name"	"scoreboard minigame"
+			"attribute_class"	"scoreboard_minigame"
+			"description_string"	"#Attrib_Scoreboard_Minigame"
+			"description_format"	"value_is_additive"
+			"hidden"	"0"
+			"effect_type"	"neutral"
+			"stored_as_integer"	"1"
+		}
+		"1076"
+		{
+			"name"	"wet immunity"
+			"attribute_class"	"wet_immunity"
+			"description_string"	"#Attrib_Wet_Immunity"
+			"description_format"	"value_is_additive"
+			"hidden"	"0"
+			"effect_type"	"positive"
+			"stored_as_integer"	"1"
+		}
+		"1077"
+		{
+			"name"	"parachute disabled"
+			"attribute_class"	"parachute_disabled"
+			"description_string"	"#Attrib_Parachute_Disabled"
+			"description_format"	"value_is_additive"
+			"hidden"	"0"
+			"effect_type"	"negative"
+			"stored_as_integer"	"1"
+		}
+		"1078"
+		{
+			"name"	"ability master sniper"
+			"attribute_class"	"ability_master_sniper"
+			"description_string"	"#Attrib_Sniper_Mastery"
+			"description_format"	"value_is_additive"
+			"hidden"	"0"
+			"effect_type"	"positive"
+			"stored_as_integer"	"1"
+		}
+		"1079"
+		{
+			"name"	"can holster while spinning"
+			"attribute_class"	"mod_minigun_can_holster_while_spinning"
+			"description_string"	"#Attrib_Minigun_Holsters_On_Spinup"
+			"description_format"	"value_is_additive"
+			"hidden"	"0"
+			"effect_type"	"positive"
+			"stored_as_integer"	"1"
+		}
+		"1080"
+		{
+			"name"	"melee cleave attack"
+			"attribute_class"	"melee_cleave_attack"
+			"description_string"	"#Attrib_Cleave_Attacks"
+			"description_format"	"value_is_additive"
+			"hidden"	"0"
+			"effect_type"	"positive"
+			"stored_as_integer"	"1"
+		}
+		"1081"
+		{
+			"name"	"damage bonus with reduced health"
+			"attribute_class"	"mult_dmg_with_reduced_health"
+			"description_string"	"#Attrib_Reduced_Health_Increases_Damage"
+			"description_format"	"value_is_percentage"
+			"hidden"	"0"
+			"effect_type"	"positive"
+			"stored_as_integer"	"0"
+		}
+		"1082"
+		{
+			"name"	"damage penalty with reduced health"
+			"attribute_class"	"mult_dmg_with_reduced_health"
+			"description_string"	"#Attrib_Reduced_Health_Reduces_Damage"
+			"description_format"	"value_is_percentage"
+			"hidden"	"0"
+			"effect_type"	"negative"
+			"stored_as_integer"	"0"
+		}
+		"1083"
+		{
+			"name"	"lifeleech on damage"
+			"attribute_class"	"lifeleech_on_damage"
+			"description_string"	"#Attrib_Lifeleech_On_Damage"
+			"description_format"	"value_is_additive_percentage"
+			"hidden"	"0"
+			"effect_type"	"positive"
+			"stored_as_integer"	"0"
+		}
 	}
 	
 	"items"
 	{
+        "21000"
+		{
+			"name"			"Spinup Flamethrower"
+			"prefab"		"weapon_flamethrower"
+			"baseitem"		"0"
+			"item_quality"	"selfmade"
+            "mod_tf_item"		"1"
+			"item_type_name"	"#TF_Weapon_Flamethrower"
+			"item_name"	"#Weapon_Spinup"
+			"item_slot"	"primary"
+            "attributes"
+            {
+                "flamethrower spinup"
+                {
+                    "attribute_class"	"mod_flamethrower_spinup_time"
+                    "value"			"1"
+                }
+            }
+			"visuals"
+			{
+				"attached_models"
+				{
+					"0"
+					{
+						"model"	"models/weapons/c_models/c_flamethrower/c_flamethrower_pilotlight.mdl"
+					}
+				}
+			}
+		}
+        "21001"
+		{
+			"name"			"Speed Flamethrower"
+			"prefab"		"weapon_flamethrower"
+			"baseitem"		"0"
+			"item_quality"	"selfmade"
+            "mod_tf_item"		"1"
+			"item_type_name"	"#TF_Weapon_Flamethrower"
+			"item_name"	"#Weapon_Speeder"
+			"item_slot"	"primary"
+            "attributes"
+            {
+                "flamethrower forward pull"
+                {
+                    "attribute_class"	"firing_forward_pull"
+                    "value"			"1"
+                }
+                "airblast dashes"
+                {
+                    "attribute_class"	"airblast_dashes"
+                    "value"			"1"
+                }
+            }
+            "used_by_classes"
+			{
+				"pyro"	"1"
+			}
+			"visuals"
+			{
+				"attached_models"
+				{
+					"0"
+					{
+						"model"	"models/weapons/c_models/c_flamethrower/c_flamethrower_pilotlight.mdl"
+					}
+				}
+			}
+			"mouse_pressed_sound"	"ui/item_heavy_gun_pickup.wav"
+			"drop_sound"		"ui/item_heavy_gun_drop.wav"
+		}
+        "21002"
+		{
+			"name"			"Waterfall Flamethrower"
+			"prefab"		"weapon_flamethrower"
+			"baseitem"		"0"
+			"item_quality"	"selfmade"
+            "mod_tf_item"		"1"
+			"item_type_name"	"#TF_Weapon_Flamethrower"
+			"item_name"	"#Weapon_Waterfall"
+			"item_slot"	"primary"
+            "attributes"
+            {
+                "flame waterfall"
+                {
+                    "attribute_class"	"flame_waterfall"
+                    "value"			"1"
+                }
+            }
+            "used_by_classes"
+			{
+				"pyro"	"1"
+			}
+			"visuals"
+			{
+				"attached_models"
+				{
+					"0"
+					{
+						"model"	"models/weapons/c_models/c_flamethrower/c_flamethrower_pilotlight.mdl"
+					}
+				}
+			}
+			"mouse_pressed_sound"	"ui/item_heavy_gun_pickup.wav"
+			"drop_sound"		"ui/item_heavy_gun_drop.wav"
+		}
+        "21003"
+		{
+			"name"			"Reduced Cone Flamethrower"
+			"prefab"		"weapon_flamethrower"
+			"baseitem"		"0"
+			"item_quality"	"selfmade"
+            "mod_tf_item"		"1"
+			"item_type_name"	"#TF_Weapon_Flamethrower"
+			"item_name"	"#Weapon_Reduced_Cone"
+			"item_slot"	"primary"
+            "attributes"
+            {
+                "airblast cone penalty"
+                {
+                    "attribute_class"	"mult_airblast_cone_scale"
+                    "value"			"0.5"
+                }
+            }
+            "used_by_classes"
+			{
+				"pyro"	"1"
+			}
+			"visuals"
+			{
+				"attached_models"
+				{
+					"0"
+					{
+						"model"	"models/weapons/c_models/c_flamethrower/c_flamethrower_pilotlight.mdl"
+					}
+				}
+			}
+			"mouse_pressed_sound"	"ui/item_heavy_gun_pickup.wav"
+			"drop_sound"		"ui/item_heavy_gun_drop.wav"
+		}
+        "21004"
+		{
+			"name"			"Larger Cone Flamethrower"
+			"prefab"		"weapon_flamethrower"
+			"baseitem"		"0"
+			"item_quality"	"selfmade"
+            "mod_tf_item"		"1"
+			"item_type_name"	"#TF_Weapon_Flamethrower"
+			"item_name"	"#Weapon_Increased_Cone"
+			"item_slot"	"primary"
+            "attributes"
+            {
+                "airblast cone bonus"
+                {
+                    "attribute_class"	"mult_airblast_cone_scale"
+                    "value"			"2"
+                }
+            }
+            "used_by_classes"
+			{
+				"pyro"	"1"
+			}
+			"visuals"
+			{
+				"attached_models"
+				{
+					"0"
+					{
+						"model"	"models/weapons/c_models/c_flamethrower/c_flamethrower_pilotlight.mdl"
+					}
+				}
+			}
+			"mouse_pressed_sound"	"ui/item_heavy_gun_pickup.wav"
+			"drop_sound"		"ui/item_heavy_gun_drop.wav"
+		}
+        "21005"
+		{
+			"name"			"Rapid Airblast Flamethrower"
+			"prefab"		"weapon_flamethrower"
+			"baseitem"		"0"
+			"item_quality"	"selfmade"
+            "mod_tf_item"		"1"
+			"item_type_name"	"#TF_Weapon_Flamethrower"
+			"item_name"	"#Weapon_Rapid_Airblast"
+			"item_slot"	"primary"
+            "attributes"
+            {
+                "airblast primary refire bonus"
+                {
+                    "attribute_class"	"mult_airblast_primary_refire_time"
+                    "value"			"0.25"
+                }
+            }
+            "used_by_classes"
+			{
+				"pyro"	"1"
+			}
+			"visuals"
+			{
+				"attached_models"
+				{
+					"0"
+					{
+						"model"	"models/weapons/c_models/c_flamethrower/c_flamethrower_pilotlight.mdl"
+					}
+				}
+			}
+			"mouse_pressed_sound"	"ui/item_heavy_gun_pickup.wav"
+			"drop_sound"		"ui/item_heavy_gun_drop.wav"
+		}
+        "21006"
+		{
+			"name"			"Slow Airblast Flamethrower"
+			"prefab"		"weapon_flamethrower"
+			"baseitem"		"0"
+			"item_quality"	"selfmade"
+            "mod_tf_item"		"1"
+			"item_type_name"	"#TF_Weapon_Flamethrower"
+			"item_name"	"#Weapon_Slow_Airblast"
+			"item_slot"	"primary"
+            "attributes"
+            {
+                "airblast primary refire penalty"
+                {
+                    "attribute_class"	"mult_airblast_primary_refire_time"
+                    "value"			"2"
+                }
+            }
+            "used_by_classes"
+			{
+				"pyro"	"1"
+			}
+			"visuals"
+			{
+				"attached_models"
+				{
+					"0"
+					{
+						"model"	"models/weapons/c_models/c_flamethrower/c_flamethrower_pilotlight.mdl"
+					}
+				}
+			}
+			"mouse_pressed_sound"	"ui/item_heavy_gun_pickup.wav"
+			"drop_sound"		"ui/item_heavy_gun_drop.wav"
+		}
+		"21007"
+		{
+			"name"			"Reverse Airblast Flamethrower"
+			"prefab"		"weapon_flamethrower"
+			"baseitem"		"0"
+			"item_quality"	"selfmade"
+            "mod_tf_item"		"1"
+			"item_type_name"	"#TF_Weapon_Flamethrower"
+			"item_name"	"#Weapon_Reverse_Airblast"
+			"item_slot"	"primary"
+            "attributes"
+            {
+                "reverse airblast"
+                {
+                    "attribute_class"	"reverse_airblast"
+                    "value"			"1"
+                }
+            }
+            "used_by_classes"
+			{
+				"pyro"	"1"
+			}
+			"visuals"
+			{
+				"attached_models"
+				{
+					"0"
+					{
+						"model"	"models/weapons/c_models/c_flamethrower/c_flamethrower_pilotlight.mdl"
+					}
+				}
+			}
+			"mouse_pressed_sound"	"ui/item_heavy_gun_pickup.wav"
+			"drop_sound"		"ui/item_heavy_gun_drop.wav"
+		}
+		"21008"
+		{
+			"name"			"Charged Airblast Flamethrower"
+			"prefab"		"weapon_flamethrower"
+			"baseitem"		"0"
+			"item_quality"	"selfmade"
+            "mod_tf_item"		"1"
+			"item_type_name"	"#TF_Weapon_Flamethrower"
+			"item_name"	"#Weapon_Charged_Airblast"
+			"item_slot"	"primary"
+            "attributes"
+            {
+                "charged airblast"
+                {
+                    "attribute_class"	"set_charged_airblast"
+                    "value"			"1"
+                }
+            }
+            "used_by_classes"
+			{
+				"pyro"	"1"
+			}
+			"visuals"
+			{
+				"attached_models"
+				{
+					"0"
+					{
+						"model"	"models/weapons/c_models/c_flamethrower/c_flamethrower_pilotlight.mdl"
+					}
+				}
+			}
+			"mouse_pressed_sound"	"ui/item_heavy_gun_pickup.wav"
+			"drop_sound"		"ui/item_heavy_gun_drop.wav"
+		}
+        "21020"
+        {
+            "name"	"Accuracy Reward Revolver"
+			"prefab"	"weapon_revolver"
+			"item_class"	"tf_weapon_revolver"
+			"craft_class"	"weapon"
+			"craft_material_type"	"weapon"
+			"item_type_name"	"#TF_Weapon_Revolver"
+			"item_name"	"#Weapon_Stacking_Damage"
+			"item_slot"	"secondary"
+			"item_quality"	"selfmade"
+            "mod_tf_item"		"1"
+			"image_inventory"	"backpack/weapons/w_models/w_revolver"
+			"image_inventory_size_w"		"128"
+			"image_inventory_size_h"		"82"
+			"model_player"	"models/weapons/c_models/c_revolver/c_revolver.mdl"
+			"attach_to_hands" "1"
+			"used_by_classes"
+			{
+				"spy"	"1"
+			}
+            "attributes"
+			{
+				"stacking damage bonus"
+				{
+					"attribute_class"	"extra_damage_on_hit"
+					"value"	"2"
+				}
+                "stacking damage miss penalty"
+				{
+					"attribute_class"	"extra_damage_on_hit_penalty"
+					"value"	"1"
+				}
+			}
+			"mouse_pressed_sound"	"ui/item_light_gun_pickup.wav"
+			"drop_sound"		"ui/item_light_gun_drop.wav"
+        }
+        "21021"
+        {
+            "name"	"Deadly Last Strike Revolver"
+			"prefab"	"weapon_revolver"
+			"item_class"	"tf_weapon_revolver"
+			"craft_class"	"weapon"
+			"craft_material_type"	"weapon"
+			"item_type_name"	"#TF_Weapon_Revolver"
+			"item_name"	"#Weapon_Last_Crits"
+			"item_slot"	"secondary"
+			"item_quality"	"selfmade"
+            "mod_tf_item"		"1"
+			"image_inventory"	"backpack/weapons/w_models/w_revolver"
+			"image_inventory_size_w"		"128"
+			"image_inventory_size_h"		"82"
+			"model_player"	"models/weapons/c_models/c_revolver/c_revolver.mdl"
+			"attach_to_hands" "1"
+			"used_by_classes"
+			{
+				"spy"	"1"
+			}
+            "attributes"
+			{
+				"last shot crits"
+				{
+					"attribute_class"	"last_shot_crits"
+					"value"	"1"
+				}
+			}
+			"mouse_pressed_sound"	"ui/item_light_gun_pickup.wav"
+			"drop_sound"		"ui/item_light_gun_drop.wav"
+        }
+        "21022"
+		{
+			"name"	"Chargeable Sapper"
+			"prefab" "weapon_sapper"
+			"item_quality"	"selfmade"
+            "item_name"	"#Weapon_Charged_Sapper"
+            "mod_tf_item"		"1"
+            "attributes"
+			{
+				"sapper charge time"
+				{
+					"attribute_class"	"sapper_deploy_time"
+					"value"	"2.5"
+				}
+                "sapper charge meter"
+				{
+					"attribute_class"	"custom_charge_meter"
+					"value"	"1"
+				}
+			}
+		}
+		"21023"
+		{
+			"name"	"Buffed Dispensers"
+			"item_class"	"tf_weapon_pda_engineer_build"
+			"craft_class"	"weapon"
+			"craft_material_type"	"weapon"
+			"item_name"	"#Weapon_Dispenser_Buffed"
+			"item_type_name"	"#TF_Weapon_PDA_Engineer"
+			"item_slot"	"pda"
+			"item_quality"	"selfmade"
+			"mod_tf_item" "1"
+			"attach_to_hands" "1"
+			"image_inventory"	"backpack/weapons/w_models/w_builder"
+			"image_inventory_size_w"		"128"
+			"image_inventory_size_h"		"82"
+			"model_player"	"models/weapons/c_models/c_builder/c_builder.mdl"
+			"used_by_classes"
+			{
+				"engineer"	"1"
+			}
+			"static_attrs"
+			{
+				"min_viewmodel_offset"					"10 0 -10"				
+			}
+			"attributes"
+			{
+				"dispenser rate bonus"
+				{
+					"attribute_class"	"mult_dispenser_rate"
+					"value"	"2"
+				}
+			}
+			"mouse_pressed_sound"	"ui/item_metal_weapon_pickup.wav"
+			"drop_sound"		"ui/item_metal_weapon_drop.wav"
+			"visuals"
+			{
+				"animation_replacement"
+				{
+					"ACT_VM_IDLE"	"ACT_ENGINEER_PDA2_VM_IDLE"
+					"ACT_VM_DRAW"	"ACT_ENGINEER_PDA2_VM_DRAW"
+				}
+			}
+		}
+		"21024"
+		{
+			"name"	"Nerfed Dispensers"
+			"item_class"	"tf_weapon_pda_engineer_build"
+			"craft_class"	"weapon"
+			"craft_material_type"	"weapon"
+			"item_name"	"#Weapon_Dispenser_Nerfed"
+			"item_type_name"	"#TF_Weapon_PDA_Engineer"
+			"item_slot"	"pda"
+			"item_quality"	"selfmade"
+			"mod_tf_item" "1"
+			"attach_to_hands" "1"
+			"image_inventory"	"backpack/weapons/w_models/w_builder"
+			"image_inventory_size_w"		"128"
+			"image_inventory_size_h"		"82"
+			"model_player"	"models/weapons/c_models/c_builder/c_builder.mdl"
+			"used_by_classes"
+			{
+				"engineer"	"1"
+			}
+			"static_attrs"
+			{
+				"min_viewmodel_offset"					"10 0 -10"				
+			}
+			"attributes"
+			{
+				"dispenser rate penalty"
+				{
+					"attribute_class"	"mult_dispenser_rate"
+					"value"	"0.5"
+				}
+			}
+			"mouse_pressed_sound"	"ui/item_metal_weapon_pickup.wav"
+			"drop_sound"		"ui/item_metal_weapon_drop.wav"
+			"visuals"
+			{
+				"animation_replacement"
+				{
+					"ACT_VM_IDLE"	"ACT_ENGINEER_PDA2_VM_IDLE"
+					"ACT_VM_DRAW"	"ACT_ENGINEER_PDA2_VM_DRAW"
+				}
+			}
+		}
+		"21025"
+		{
+			"name"	"Buffed Teleporters"
+			"item_class"	"tf_weapon_pda_engineer_build"
+			"craft_class"	"weapon"
+			"craft_material_type"	"weapon"
+			"item_name"	"#Weapon_Teleporter_Buffed"
+			"item_type_name"	"#TF_Weapon_PDA_Engineer"
+			"item_slot"	"pda"
+			"item_quality"	"selfmade"
+			"mod_tf_item" "1"
+			"attach_to_hands" "1"
+			"image_inventory"	"backpack/weapons/w_models/w_builder"
+			"image_inventory_size_w"		"128"
+			"image_inventory_size_h"		"82"
+			"model_player"	"models/weapons/c_models/c_builder/c_builder.mdl"
+			"used_by_classes"
+			{
+				"engineer"	"1"
+			}
+			"static_attrs"
+			{
+				"min_viewmodel_offset"					"10 0 -10"				
+			}
+			"attributes"
+			{
+				"teleporter rate bonus"
+				{
+					"attribute_class"	"mult_teleporter_recharge_rate"
+					"value"	"0.5"
+				}
+			}
+			"mouse_pressed_sound"	"ui/item_metal_weapon_pickup.wav"
+			"drop_sound"		"ui/item_metal_weapon_drop.wav"
+			"visuals"
+			{
+				"animation_replacement"
+				{
+					"ACT_VM_IDLE"	"ACT_ENGINEER_PDA2_VM_IDLE"
+					"ACT_VM_DRAW"	"ACT_ENGINEER_PDA2_VM_DRAW"
+				}
+			}
+		}
+		"21026"
+		{
+			"name"	"Nerfed Teleporters"
+			"item_class"	"tf_weapon_pda_engineer_build"
+			"craft_class"	"weapon"
+			"craft_material_type"	"weapon"
+			"item_name"	"#Weapon_Teleporter_Nerfed"
+			"item_type_name"	"#TF_Weapon_PDA_Engineer"
+			"item_slot"	"pda"
+			"item_quality"	"selfmade"
+			"mod_tf_item" "1"
+			"attach_to_hands" "1"
+			"image_inventory"	"backpack/weapons/w_models/w_builder"
+			"image_inventory_size_w"		"128"
+			"image_inventory_size_h"		"82"
+			"model_player"	"models/weapons/c_models/c_builder/c_builder.mdl"
+			"used_by_classes"
+			{
+				"engineer"	"1"
+			}
+			"static_attrs"
+			{
+				"min_viewmodel_offset"					"10 0 -10"				
+			}
+			"attributes"
+			{
+				"teleporter rate penalty"
+				{
+					"attribute_class"	"mult_teleporter_recharge_rate"
+					"value"	"2"
+				}
+			}
+			"mouse_pressed_sound"	"ui/item_metal_weapon_pickup.wav"
+			"drop_sound"		"ui/item_metal_weapon_drop.wav"
+			"visuals"
+			{
+				"animation_replacement"
+				{
+					"ACT_VM_IDLE"	"ACT_ENGINEER_PDA2_VM_IDLE"
+					"ACT_VM_DRAW"	"ACT_ENGINEER_PDA2_VM_DRAW"
+				}
+			}
+		}
+		"21027"
+		{
+			"name"	"Dispenser Disguise Knife"
+			"item_name"	"#Weapon_Dispenser_Disguise"
+			"prefab"	"weapon_knife"
+			"mod_tf_item"		"1"
+			"item_quality"	"selfmade"
+			"attributes"
+			{
+				"disguise as dispenser"
+				{
+					"attribute_class"	"disguise_as_dispenser_on_crouch"
+					"value"	"1"
+				}
+			}
+		}
+		"21028"
+		{
+			"name"	"Sluggish Disguise Knife"
+			"item_name"	"#Weapon_Slow_Disguise"
+			"prefab"	"weapon_knife"
+			"mod_tf_item"		"1"
+			"item_quality"	"selfmade"
+			"attributes"
+			{
+				"disguise speed penalty"
+				{
+					"attribute_class"	"disguise_speed_penalty"
+					"value"	"3"
+				}
+			}
+		}
+		"21029"
+		{
+			"name"	"Uber Transferral Syringe Gun"
+			"prefab"	"weapon_syringegun"
+			"item_name"	"#Weapon_Uber_Transfer"
+			"mod_tf_item"		"1"
+			"item_quality"	"selfmade"
+			"attributes"
+			{
+				"ubercharge ammo"
+				{
+					"attribute_class"	"ubercharge_ammo"
+					"value"	"1"
+				}
+				"ubercharge transfer"
+				{
+					"attribute_class"	"ubercharge_transfer"
+					"value"	"100"
+				}
+			}
+		}
+		"21030"
+		{
+			"name"	"Mad Milk Crossbow"
+			"prefab" "weapon_crusaders_crossbow"
+			"item_name"	"#Weapon_Mad_Milk_Crossbow"
+			"particle_suffix"	"crusaders_crossbow"
+			"mod_tf_item"		"1"
+			"item_quality"	"selfmade"
+			"attributes"
+			{
+				"fires milk bolt"
+				{
+					"attribute_class"	"fires_milk_bolt"
+					"value"	"10"
+				}
+			}
+		}
+		"21031"
+		{
+			"name"	"Death Cheater Knife"
+			"item_name"	"#Weapon_Teleport_Death"
+			"prefab"	"weapon_knife"
+			"mod_tf_item"		"1"
+			"item_quality"	"selfmade"
+			"attributes"
+			{
+				"teleport instead of die"
+				{
+					"attribute_class"	"teleport_instead_of_die"
+					"value"	"0.75"
+				}
+			}
+		}
+		"21032"
+		{
+			"name"	"Lifesaver Syringe Gun"
+			"prefab"	"weapon_syringegun"
+			"item_name"	"#Weapon_Lifesaver_Syringe"
+			"mod_tf_item"		"1"
+			"item_quality"	"selfmade"
+			"attributes"
+			{
+				"uber on damage taken"
+				{
+					"attribute_class"	"uber_on_damage_taken"
+					"value"	"0.5"
+				}
+			}
+		}
+		"21033"
+		{
+			"name"	"Poor Penetrator Machina"
+			"prefab"	"weapon_machina"
+			"item_name"	"#Weapon_Penetration_Penalty"
+			"item_description"	"#TF_DEX_Rifle_Desc"
+			"mod_tf_item"		"1"
+			"item_quality"	"selfmade"
+			"attributes"
+			{
+				"penetration damage penalty"
+				{
+					"attribute_class"	"penetration_damage_penalty"
+					"value"	"0.3"
+				}
+			}
+			"visuals"
+			{
+				"sound_single_shot"	"Weapon_SniperRailgun_Large.Single"
+				"sound_burst"		"Weapon_SniperRailgun_Large.SingleCrit"
+				"sound_reload"		"Weapon_SniperRailgun.WorldReload"
+				"sound_empty"		"Weapon_SniperRailgun.ClipEmpty"
+				"sound_special2"	"Weapon_SniperRailgun.NonScoped"
+				"sound_special3"	"Weapon_SniperRailgun.Single"
+				"muzzle_flash"		"dxhr_sniper_muzzleflash"
+				"attached_models_festive"
+				{
+					"0"
+					{
+						"model"	"models/workshop_partner/weapons/c_models/c_dex_sniperrifle/c_dex_sniperrifle_festivizer.mdl"
+					}
+				}
+			}
+		}
+		"21034"
+		{
+			"name"	"Fast Crosshair Charge Sniper"
+			"prefab"	"weapon_sniperrifle"
+			"item_name"	"Weapon_Fast_Crosshair_Charge"
+			"mod_tf_item"		"1"
+			"item_quality"	"selfmade"
+			"attributes"
+			{
+				"crosshair charge bonus"
+				{
+					"attribute_class"	"mult_sniper_charge_per_sec_with_enemy_under_crosshair"
+					"value"	"2"
+				}
+				"beep under crosshair"
+				{
+					"attribute_class"	"sniper_beep_with_enemy_under_crosshair"
+					"value"	"1"
+				}
+			}
+		}
+		"21035"
+		{
+			"name"	"Slow Crosshair Charge Sniper"
+			"prefab"	"weapon_sniperrifle"
+			"item_name"	"Weapon_Slow_Crosshair_Charge"
+			"mod_tf_item"		"1"
+			"item_quality"	"selfmade"
+			"attributes"
+			{
+				"crosshair charge penalty"
+				{
+					"attribute_class"	"mult_sniper_charge_per_sec_with_enemy_under_crosshair"
+					"value"	"0.5"
+				}
+			}
+		}
+		"21036"
+		{
+			"name"	"Heat Seeker"
+			"prefab"	"weapon_flaregun"
+			"item_name"	"Weapon_Heat_Seeking"
+			"mod_tf_item"		"1"
+			"item_quality"	"selfmade"
+			"attributes"
+			{
+				"heat seek bonus"
+				{
+					"attribute_class"	"mod_projectile_heat_seek_power"
+					"value"	"100"
+				}
+			}
+		}
+		"21037"
+		{
+			"name"	"Increased Range Buff Banner"
+			"prefab"	"weapon_buff_banner"
+			"item_name"	"Weapon_Buff_Banner_IncreasedRange"
+			"mod_tf_item"		"1"
+			"item_quality"	"selfmade"
+			"attributes"
+			{
+				"soldier buff range bonus"
+				{
+					"attribute_class"	"mod_soldier_buff_range"
+					"value"	"2"
+				}
+			}
+		}
+		"21038"
+		{
+			"name"	"Reduced Range Buff Banner"
+			"prefab"	"weapon_buff_banner"
+			"item_name"	"Weapon_Buff_Banner_DecreasedRange"
+			"mod_tf_item"		"1"
+			"item_quality"	"selfmade"
+			"attributes"
+			{
+				"soldier buff range penalty"
+				{
+					"attribute_class"	"mod_soldier_buff_range"
+					"value"	"0.3"
+				}
+			}
+		}
+		"21039"
+		{
+			"name"	"No Parachute Rocket Launcher"
+			"prefab"	"weapon_rocketlauncher"
+			"item_name"	"Weapon_Anti_Parachute"
+			"mod_tf_item"		"1"
+			"item_quality"	"selfmade"
+			"attributes"
+			{
+				"parachute disabled"
+				{
+					"attribute_class"	"parachute_disabled"
+					"value"	"1"
+				}
+			}
+		}
+        "21040"
+		{
+			"name"	"Combo Minigun"
+			"prefab"	"weapon_minigun"
+            "mod_tf_item"		"1"
+			"item_quality"	"selfmade"
+			"item_name"	"Weapon_Combo"
+			"attributes"
+			{
+				"killcombo"
+				{
+					"attribute_class"	"kill_combo_fire_rate_boost"
+					"value"	"1.5"
+				}
+			}
+			"mouse_pressed_sound"	"ui/item_heavy_gun_pickup.wav"
+			"drop_sound"		"ui/item_heavy_gun_drop.wav"
+		}
+		"21041"
+		{
+			"name"	"Grounded Attack Rate Increase Rocket Launcher"
+			"prefab"	"weapon_rocketlauncher"
+			"item_name"	"Weapon_Grounded_Attackrate_Increase_RL"
+			"mod_tf_item"		"1"
+			"item_quality"	"selfmade"
+			"attributes"
+			{
+				"non rocketjump attackrate bonus"
+				{
+					"attribute_class"	"mul_nonrocketjump_attackrate"
+					"value"	"0.3"
+				}
+			}
+		}
+		"21042"
+		{
+			"name"	"Grounded Attack Rate Decrease Rocket Launcher"
+			"prefab"	"weapon_rocketlauncher"
+			"item_name"	"Weapon_Grounded_Attackrate_Decrease_RL"
+			"mod_tf_item"		"1"
+			"item_quality"	"selfmade"
+			"attributes"
+			{
+				"non rocketjump attackrate penalty"
+				{
+					"attribute_class"	"mul_nonrocketjump_attackrate"
+					"value"	"2"
+				}
+			}
+		}
+		"21044"
+		{
+			"name"	"Robofist Wrench"
+			"prefab"	"weapon_wrench"
+			"item_name"	"Weapon_Gunslinger_Without_Mini"
+			"mod_tf_item"		"1"
+			"item_quality"	"selfmade"
+			"attributes"
+			{
+				"override hand model index"
+				{
+					"attribute_class"	"override_hand_model_index"
+					"value"	"1"
+				}
+			}
+		}
+		"21045"
+		{
+			"name"	"Battle Med Amputator"
+			"prefab"		"weapon_amputator"
+			"particle_suffix"	"amputator"
+			"item_name"	"Weapon_Amputator_Healer"
+			"mod_tf_item"		"1"
+			"item_quality"	"selfmade"
+			"attributes"
+			{
+				"aoe heal chance"
+				{
+					"attribute_class"	"aoe_heal_chance"
+					"value"	"50"
+				}
+			}
+		}
+		"21046"
+		{
+			"name"	"Damage Crit Fists"
+			"prefab"	"weapon_fists"
+			"item_name"	"Weapon_Crit_On_Damage_Fists"
+			"mod_tf_item"		"1"
+			"item_quality"	"selfmade"
+			"attributes"
+			{
+				"crits on damage"
+				{
+					"attribute_class"	"crits_on_damage"
+					"value"	"50"
+				}
+			}
+		}
+		"21047"
+		{
+			"name"	"Stunner Fists"
+			"prefab"	"weapon_fists"
+			"item_name"	"Weapon_Stun_On_Damage_Fists"
+			"mod_tf_item"		"1"
+			"item_quality"	"selfmade"
+			"attributes"
+			{
+				"stun on damage"
+				{
+					"attribute_class"	"stun_on_damage"
+					"value"	"50"
+				}
+			}
+		}
+		"21048"
+		{
+			"name"	"Blast Fists"
+			"prefab"	"weapon_fists"
+			"item_name"	"Weapon_Stun_On_Damage_Fists"
+			"mod_tf_item"		"1"
+			"item_quality"	"selfmade"
+			"attributes"
+			{
+				"aoe blast on damage"
+				{
+					"attribute_class"	"aoe_blast_on_damage"
+					"value"	"50"
+				}
+			}
+		}
+		"21049"
+		{
+			"name"	"Underwater Breather Bottle"
+			"prefab"	"weapon_bottle"
+			"item_name"	"Weapon_Underwater_Breathing_Bat"
+			"mod_tf_item"		"1"
+			"item_quality"	"selfmade"
+			"attributes"
+			{
+				"can breathe under water"
+				{
+					"attribute_class"	"can_breathe_under_water"
+					"value"	"1"
+				}
+			}
+		}
+		"21050"
+		{
+			"name"	"Anti Buoyancy Bottle"
+			"prefab"	"weapon_bottle"
+			"item_name"	"Weapon_Underwater_Sinker"
+			"mod_tf_item"		"1"
+			"item_quality"	"selfmade"
+			"attributes"
+			{
+				"cannot swim"
+				{
+					"attribute_class"	"cannot_swim"
+					"value"	"1"
+				}
+			}
+		}
+		"21051"
+		{
+			"name"	"Swimmer Bat"
+			"prefab"	"weapon_bat"
+			"item_name"	"Weapon_Water_Swimmer"
+			"mod_tf_item"		"1"
+			"item_quality"	"selfmade"
+			"attributes"
+			{
+				"swimming mastery"
+				{
+					"attribute_class"	"swimming_mastery"
+					"value"	"1"
+				}
+			}
+		}
+		"21052"
+		{
+			"name"	"Cleaver Eyelander"
+			"prefab"	"weapon_eyelander"
+			"item_name"	"Weapon_Cleaving_Sword"
+			"mod_tf_item"		"1"
+			"item_quality"	"selfmade"
+			"attributes"
+			{
+				"melee cleave attack"
+				{
+					"attribute_class"	"melee_cleave_attack"
+					"value"	"1"
+				}
+			}
+		}
+		"21053"
+		{
+			"name"	"Rapid Holster Minigun"
+			"prefab"	"weapon_minigun"
+            "mod_tf_item"		"1"
+			"item_name"	"Weapon_Holster_While_Spun_Minigun"
+			"item_quality"	"selfmade"
+			"attributes"
+			{
+				"can holster while spinning"
+				{
+					"attribute_class"	"mod_minigun_can_holster_while_spinning"
+					"value"	"1"
+				}
+			}
+			"mouse_pressed_sound"	"ui/item_heavy_gun_pickup.wav"
+			"drop_sound"		"ui/item_heavy_gun_drop.wav"
+		}
+		"21054"
+		{
+			"name"	"Master Sniper Rifle"
+			"prefab"	"weapon_sniperrifle"
+			"item_name"	"Weapon_Master_Sniper"
+			"mod_tf_item"		"1"
+			"item_quality"	"selfmade"
+			"attributes"
+			{
+				"ability master sniper"
+				{
+					"attribute_class"	"ability_master_sniper"
+					"value"	"1"
+				}
+			}
+		}
+		"21055"
+		{
+			"name"	"Grand Master Sniper Rifle"
+			"prefab"	"weapon_sniperrifle"
+			"item_name"	"Weapon_Master2_Sniper"
+			"mod_tf_item"		"1"
+			"item_quality"	"selfmade"
+			"attributes"
+			{
+				"ability master sniper"
+				{
+					"attribute_class"	"ability_master_sniper"
+					"value"	"2"
+				}
+			}
+		}
+		"21056"
+		{
+			"name"	"Master Huntsman"
+			"prefab"	"weapon_huntsman"
+			"item_name"	"Weapon_MasterBow_Sniper"
+			"mod_tf_item"		"1"
+			"item_quality"	"selfmade"
+			"attributes"
+			{
+				"ability master sniper"
+				{
+					"attribute_class"	"ability_master_sniper"
+					"value"	"1"
+				}
+			}
+		}
+		"21057"
+		{
+			"name"	"Grand Master Huntsman"
+			"prefab"	"weapon_huntsman"
+			"item_name"	"Weapon_MasterBow2_Sniper"
+			"mod_tf_item"		"1"
+			"item_quality"	"selfmade"
+			"attributes"
+			{
+				"ability master sniper"
+				{
+					"attribute_class"	"ability_master_sniper"
+					"value"	"2"
+				}
+			}
+		}
+		"21058"
+		{
+			"name"	"Liquid Resistant Knife"
+			"item_name"	"#Weapon_Waterproof_Knife"
+			"prefab"	"weapon_knife"
+			"mod_tf_item"		"1"
+			"item_quality"	"selfmade"
+			"attributes"
+			{
+				"wet immunity"
+				{
+					"attribute_class"	"wet_immunity"
+					"value"	"1"
+				}
+			}
+		}
+		"21059"
+		{
+			"name"	"Equalizer Fists"
+			"prefab"	"weapon_fists"
+            "mod_tf_item"		"1"
+			"item_name"	"Weapon_Equalizer_Fists"
+			"item_quality"	"selfmade"
+			"attributes"
+			{
+				"damage bonus with reduced health"
+				{
+					"attribute_class"	"mult_dmg_with_reduced_health"
+					"value"	"2"
+				}
+			}
+		}
+		"21060"
+		{
+			"name"	"Inverse Equalizer Fists"
+			"prefab"	"weapon_fists"
+            "mod_tf_item"		"1"
+			"item_name"	"Weapon_Inverse_Equalizer_Fists"
+			"item_quality"	"selfmade"
+			"attributes"
+			{
+				"damage penalty with reduced health"
+				{
+					"attribute_class"	"mult_dmg_with_reduced_health"
+					"value"	"0.5"
+				}
+			}
+		}
+		"21061"
+		{
+			"name"	"Leech Fists"
+			"prefab"	"weapon_fists"
+            "mod_tf_item"		"1"
+			"item_name"	"Weapon_Lifeleech_Fists"
+			"item_quality"	"selfmade"
+			"attributes"
+			{
+				"lifeleech on damage"
+				{
+					"attribute_class"	"lifeleech_on_damage"
+					"value"	"0.5"
+				}
+			}
+		}
+		"21062"
+		{
+			"name"	"Scoreboard Modifier"
+			"prefab"		"base_misc"
+			"loadondemand"	"1"
+			"item_class"	"tf_wearable"
+			"mod_tf_item"		"1"
+			"item_type_name"	"#TF_Wearable_Badge"
+			"item_name"	"#Misc_Scoreboard_Modifier"
+			"item_slot"	"misc"
+			"equip_region"	"medal"
+			"image_inventory"	"backpack/player/items/all_class/id_badge_platinum"
+			"image_inventory_size_w"	"128"
+			"image_inventory_size_h"	"82"
+			"item_quality"		"selfmade"
+			"model_player"	"models/player/items/all_class/id_badge.mdl"
+			"used_by_classes"
+			{
+				"scout"	"1"
+				"sniper"	"1"
+				"soldier"	"1"
+				"demoman"	"1"
+				"medic"	"1"
+				"heavy"	"1"
+				"spy" "1"
+				"engineer" "1"
+				"pyro" "1"
+			}
+			"attributes"
+			{
+				"scoreboard minigame"
+				{
+					"attribute_class"	"scoreboard_minigame"
+					"value"				"1"
+				}
+			}
+			"visuals"
+			{
+				"skin" "3"
+				"use_per_class_bodygroups" "1"
+			}
+			"mouse_pressed_sound"	"ui/item_medal_pickup.wav"
+			"drop_sound"		"ui/item_medal_pickup.wav"
+		}
 	}
 }
