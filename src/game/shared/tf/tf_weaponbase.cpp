@@ -5318,15 +5318,14 @@ void CTFWeaponBase::ApplyOnHitAttributes( CBaseEntity *pVictimBaseEntity, CTFPla
 	}
 
 	// Damage bonus on hit
-	// Disabled because we have no attributes that use it
-	/*
+	
 	float flAddDamageDoneBonusOnHit = 0;
 	CALL_ATTRIB_HOOK_FLOAT( flAddDamageDoneBonusOnHit, addperc_ondmgdone_tmpbuff );
 	if ( flAddDamageDoneBonusOnHit )
 	{
 		pAttacker->m_Shared.AddTmpDamageBonus( flAddDamageDoneBonusOnHit, 10.0 );
 	}
-	*/
+	
 
 	if ( pVictim )
 	{
